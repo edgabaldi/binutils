@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd `pwd`
+
+if [ -z "$1" ]; then
+    echo "$0: Não foi passado argumentos"
+    exit 1
+fi
+
+if [ ! -f $1 ]; then
+    echo "$0: O arquivo não existe"
+    exit 1
+fi
+
+bomstrip < $1 > /tmp/whatever.sql.tmp
+
+mv /tmp/whatever.sql.tmp $1
